@@ -7,6 +7,7 @@ const Note = require('./models/Note');
 
 app.use(cors())
 app.use(express.json());
+app.use(express.static('build'));
 
 app.get('/api/notes', (request, response) => {
     Note.find({}).then(notes => {
