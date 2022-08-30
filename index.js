@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.static('build'));
 
 app.get('/', (request, response) => {
-  response.sendFile('./build/index.html');
+  response.sendFile('index.html');
 });
 
 app.get('/api/notes', (request, response) => {
