@@ -1,13 +1,18 @@
 require('dotenv').config();
 
 const express = require('express')
-var cors = require('cors')
 const app = express()
+
+let cors = require('cors')
 const Note = require('./models/Note');
 
 app.use(cors())
 app.use(express.json());
 app.use(express.static('build'));
+
+app.get('/', (request, response) => {
+  response.sendFile('./build/index.html');
+});
 
 app.get('/api/notes', (request, response) => {
     Note.find({}).then(notes => {
