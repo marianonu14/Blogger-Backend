@@ -9,6 +9,10 @@ app.use(cors())
 app.use(express.json());
 app.use(express.static('build'));
 
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
 app.get('/api/notes', (request, response) => {
     Note.find({}).then(notes => {
     response.json(notes);
